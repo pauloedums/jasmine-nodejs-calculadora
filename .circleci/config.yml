@@ -12,13 +12,15 @@ orbs:
 jobs:
   build_and_test: # this can be any name you choose
     executor: node/default # use the default executor defined within the orb
+    docker: 
+    - image:  circleci/node:10
+      environment:
+        - CHROME_BIN=/usr/bin/google-chrome
     steps:
     - checkout
     - node/install-packages:
         pkg-manager: npm
     - run:
-        environment:
-        - CHROME_BIN: /usr/bin/google-chrome
         command: npm run test
         name: Run tests
     - run:
