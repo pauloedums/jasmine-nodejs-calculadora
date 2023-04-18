@@ -23,6 +23,8 @@ module.exports = function(config) {
         flags: ['--no-sandbox']
       }
     },
+    captureTimeout: 60000,
+    browserNoActivityTimeout: 360000,
     singleRun: false,
     concurrency: Infinity
   })
