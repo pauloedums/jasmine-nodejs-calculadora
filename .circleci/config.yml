@@ -17,6 +17,8 @@ jobs:
     - node/install-packages:
         pkg-manager: npm
     - run:
+        environment:
+        - CHROME_BIN: /usr/bin/google-chrome
         command: npm run test
         name: Run tests
     - run:
