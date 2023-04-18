@@ -5,13 +5,12 @@ version: 2.1
 # See: https://circleci.com/docs/2.0/orb-intro/
 orbs:
   node: circleci/node@5.1.0
-  browser-tools: circleci/browser-tools@1.1.0
+  browser-tools: circleci/browser-tools@1.4.1
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 jobs:
   build: # this can be any name you choose
-    working_directory: ~/repo/sub_folder
     executor: node/default # use the default executor defined within the orb
     docker:
     - image: circleci/node:7.10
@@ -19,9 +18,7 @@ jobs:
       - CHROME_BIN: /usr/bin/google-chrome
     steps:
     - browser-tools/install-browser-tools
-    - checkout:
-        path: ~/repo
-    # Download and cache dependencies
+    - checkout
     - restore_cache:
         keys:
           - v1-dependencies-{{ checksum "package.json" }}
@@ -37,3 +34,8 @@ jobs:
 
     # run tests!
     - run: npm test
+
+    - persist_to_workspace:
+        root: ~/project
+        paths:
+          - .
