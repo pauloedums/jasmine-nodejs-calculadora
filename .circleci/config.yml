@@ -13,29 +13,27 @@ jobs:
   build: # this can be any name you choose
     executor: node/default # use the default executor defined within the orb
     docker:
+    - image: cimg/node:15.0.1-browsers
     - image: circleci/node:7.10
       environment:
       - CHROME_BIN: /usr/bin/google-chrome
     steps:
     - browser-tools/install-browser-tools
     - checkout
-    - restore_cache:
-        keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
-    - run: npm install
-
-    - save_cache:
-        paths:
-          - node_modules
-        key: v1-dependencies-{{ checksum "package.json" }}
-
-    # run tests!
-    - run: npm test
-
+    - node/install-packages:
+        pkg-manager: npm
+    - run:
+        command: npm run test
+        name: Run tests
+    - run:
+        command: npm run build
+        name: Build app
     - persist_to_workspace:
         root: ~/project
         paths:
           - .
+
+workflows:
+  test_my_app:
+    jobs:
+    - build
