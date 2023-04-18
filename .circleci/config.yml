@@ -14,7 +14,6 @@ jobs:
     executor: node/default # use the default executor defined within the orb
     docker:
     - image: cimg/node:15.0.1-browsers
-    - image: circleci/node:7.10
       environment:
       - CHROME_BIN: /usr/bin/google-chrome
     steps:
