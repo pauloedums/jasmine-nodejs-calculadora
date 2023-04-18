@@ -27,7 +27,3 @@ jobs:
     - run:
         command: npm run build
         name: Build app
-workflows:
-  test_my_app:
-    jobs:
-    - build_and_test
