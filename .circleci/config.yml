@@ -11,7 +11,7 @@ orbs:
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 jobs:
   build: # this can be any name you choose
-    working_directory: /tmp/nodejs-calculadora
+    working_directory: ~/repo/jasmine-nodejs-calculadora
     executor: node/default # use the default executor defined within the orb
     docker:
     - image: cimg/node:15.0.1-browsers
@@ -19,7 +19,8 @@ jobs:
       - CHROME_BIN: /usr/bin/google-chrome
     steps:
     - browser-tools/install-browser-tools
-    - checkout
+    - checkout:
+        path: ~/repo
     - node/install-packages:
         pkg-manager: npm
     - run:
