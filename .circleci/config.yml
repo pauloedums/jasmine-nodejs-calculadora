@@ -24,6 +24,9 @@ jobs:
         command: npm run test
         name: Run tests
     - run:
+        command: npm install
+        name: Install app
+    - run:
         command: npm run build
         name: Build app
     - persist_to_workspace:
