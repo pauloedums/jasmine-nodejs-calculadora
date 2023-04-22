@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Calculadora</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/calculadora.css">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://unpkg.com/lodash@4.17.20"></script>
+    <script src="main.js"></script>
+    <script src="util.js"></script>
+
   </head>
   <body>
     <div class="container-fluid">
@@ -20,7 +24,7 @@
                             <button 
                                 type="button" 
                                 class="btn btn-danger kz-btn" 
-                                onclick="limpar()">C</button>
+                                onclick="limparOperacao()">C</button>
                             <input 
                                 type="text" 
                                 class="form-control text-right kz-input-text" 
@@ -92,7 +96,7 @@
                             <button 
                                 type="button" 
                                 class="btn btn-success kz-btn" 
-                                onclick="calcular()">=</button>
+                                onclick="calcularOperacao()">=</button>
                             <button 
                                 type="button" 
                                 class="btn btn-warning kz-btn" 
@@ -104,7 +108,5 @@
             </div>
         </div>
     </div>
-    <script src="js/calculadora.js"></script>
-    <script src="js/util.js"></script>
   </body>
 </html>
