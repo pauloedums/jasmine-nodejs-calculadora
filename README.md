@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/pauloedums/jasmine-nodejs-calculadora.svg?style=svg)](https://circleci.com/gh/pauloedums/jasmine-nodejs-calculadora)
+[![CircleCI](https://circleci.com/gh/pauloedums/jasmine-nodejs-calculadora.svg?style=shield)](https://circleci.com/gh/pauloedums/jasmine-nodejs-calculadora)
 
 # 🚀 Welcome to your new awesome project!
 
